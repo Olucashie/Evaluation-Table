@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluation Table</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body > 
+    <h3 style="text-align: center; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;">Evaluation Table</h3>
+    <center>
+        <span >
+            <span> <input type="number" id="first" placeholder="row" style="border-radius: 50px; padding: 10px;"></span> 
+            <span><input type="number" id="second" placeholder="column" style="border-radius: 50px; padding: 10px;"></span>
+        </span>
+        
+        <!-- <div id="operating"> -->
+            <select name="signs" id="signs" style="padding: 10px; border-radius: 50px;">
+               <option value="">operators</option>
+                <option value="plus">Addition ➕</option>
+                <option value="minus">Subtration ➖</option>
+                <option value="division"> Division ➗</option>
+                <option value="multiplication">Multiplication ✖</option>
+            </select><br><br>
+            <br>
+        <!-- </div> -->
+                 <button onclick="check()" style="background-color: rgb(0, 132, 255); width: 200px; 
+                 border-radius: 50px; padding: 10px; color: white; font-size: 20px;">Check</button>
+            <br>
+            <br>
+            <br>
+            <br>
+        <table border="3" id="tabT">
+          </table>
+    </center>
+   
+        <script>
+            var sign = signs.value
+        function check() {
+            // console.log(sign);
+            var dis = "</table>"
+              dis+= "<tr>"
+            for(i =1; i<= first.value; i++){
+                dis += "<td>"
+                for(a = 1; a<= second.value; a++){
+                  if (signs.value == "plus"){ 
+                     dis += (` <P> ${i} + ${a} = ${i + a}</P>`);
+                  } else if (signs.value == "minus") {
+                    dis += (`<p>${i} - ${a} = ${i - a}</p>`);
+                  }else if (signs.value == "division") {
+                    dis +=(`<p>${i} / ${a} = ${i / a}</p>`);
+                  }else if(signs.value == "multiplication") {
+                    dis +=(`<p>${i} x ${a} = ${i * a}</p>`);
+                  }
+                }
+                dis += "</table>"
+                tabT.innerHTML = dis
+            }
+            
+        }
+            // for(a= 1; a<=10; a++){
+            // // console.log(a);
+            // for(b=1; b<=10; b++){
+            //     console.log(${a} x ${b} = ${a*b});*
+            //     ludo.innerHTML += <P><hr>${a} x ${b} = ${a*b}
+            // }
+            // }
+        </script>
+</body>
+</html>
